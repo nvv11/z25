@@ -25,7 +25,30 @@
 
 <hr/>
 <div>
-    РЕШЕНИЕ ТУТ
+    <input id="inputText" type="text"/>
+    <button id="checkButton" type="button" onclick="checkParentheses()">Check!</button>
+    <span id="result"></span>
 </div>
+<script>
+    function checkParentheses() {
+        var inputText = document.getElementById('inputText').value
+        var counter = 0
+        for (var i = 0; i < inputText.length; i++) {
+            var sym = inputText[i]
+            if (sym === '(') {
+                counter++
+            }
+            if (sym === ')') {
+                counter--
+            }
+            if (counter < 0) {
+                break
+            }
+        }
+        var resultText = document.getElementById('result')
+        resultText.innerText = counter === 0 ? 'Correct' : 'Incorrect'
+    }
+
+</script>
 </body>
 </html>
